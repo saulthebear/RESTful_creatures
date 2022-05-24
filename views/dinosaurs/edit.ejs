@@ -1,0 +1,10 @@
+<form method="POST" action="/dinosaurs/<%= dinoId %>/?_method=PUT">
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" value="<%= dino.name %>" />
+
+  <label for="type">Type</label>
+  <input id="type" type="text" name="type" value="<%= dino.type %>" />
+
+  <!-- <input type="submit" value='other words'/> -->
+  <button type="submit">Submit</button>
+</form>
