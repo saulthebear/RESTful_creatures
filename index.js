@@ -2,6 +2,7 @@ const express = require("express")
 const ejsLayout = require("express-ejs-layouts")
 const browserSync = require("browser-sync")
 const fs = require("fs")
+const methodOverride = require("method-override")
 
 const dinosaurs = require("./controllers/dinosaurs.js")
 const prehistoric_creatures = require("./controllers/prehistoric_creatures.js")
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 app.use(express.static("public"))
 app.use(ejsLayout)
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride("_method"))
 app.use("/dinosaurs", dinosaurs)
 app.use("/prehistoric_creatures", prehistoric_creatures)
 
