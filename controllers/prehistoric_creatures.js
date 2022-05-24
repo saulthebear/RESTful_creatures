@@ -60,4 +60,16 @@ router.put("/:id", (req, res) => {
   res.redirect(`/prehistoric_creatures/${id}`)
 })
 
+// Destroy route
+router.delete("/:id", (req, res) => {
+  const id = req.params.id
+  let creatures = JSON.parse(fs.readFileSync("./prehistoric_creatures.json"))
+
+  creatures.splice(id, 1)
+
+  fs.writeFileSync("./prehistoric_creatures.json", JSON.stringify(creatures))
+
+  res.redirect(`/prehistoric_creatures`)
+})
+
 module.exports = router
